@@ -1,8 +1,7 @@
 package com.Janaina.demo;
 
-import com.Janaina.demo.templates.Players;
+import com.Janaina.demo.templates.Player;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -15,7 +14,7 @@ public class Main {
         System.out.println("\u001B[36m" + "Firstly, how many players will be joining us?" + "\u001B[0m");
         int numberOfPlayers = scannerNumber();
 
-        Players[] arrayPlayers = new Players[numberOfPlayers];
+        Player[] arrayPlayers = new Player[numberOfPlayers];
 
         System.out.println("\u001B[35m" + "Amazing!" + "\u001B[0m");
 
@@ -27,7 +26,7 @@ public class Main {
         for (int i = 0; i < numberOfPlayers; i++) {
 
             String playerNames = scannerText();
-            arrayPlayers[i] = new Players(playerNames, numberOfDice);
+            arrayPlayers[i] = new Player(playerNames, numberOfDice);
 
         }
 
@@ -35,12 +34,13 @@ public class Main {
         System.out.println("\u001B[35m" + "NOW LET'S BEGIN!" + "\u001B[0m");
         Random random = new Random();
 
+        
         for (int i = 0; i <= numberOfPlayers; i++) {
             if (i == numberOfPlayers){
-                Players winner = null;
+                Player winner = null;
 
-                for (Players p : arrayPlayers) {
-                    winner = new Players(p.name, 0);
+                for (Player p : arrayPlayers) {
+                    winner = new Player(p.name, 0);
                     while (winner.score < p.score) {
                         winner = p;
                     }

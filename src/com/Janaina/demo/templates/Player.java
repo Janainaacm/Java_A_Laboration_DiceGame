@@ -1,11 +1,11 @@
 package com.Janaina.demo.templates;
 
-public class Players {
+public class Player {
 
     public String name;
     public int score;
 
-    public Players(String name, int score) {
+    public Player(String name, int score) {
         this.name = name;
         this.score = score;
     }
@@ -38,14 +38,6 @@ public class Players {
 
 
 
-
-/*
-for (int i = 0; i < numberOfPlayers; i++) {
-System.out.println("Player " + (i+1) + ", what's your name?");
-            String playerName = scannerText();
-            Players player = new Players(playerName);
-            }
- */
 
 }
 
