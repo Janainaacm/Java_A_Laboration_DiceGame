@@ -3,7 +3,6 @@ package com.Janaina.demo;
 import com.Janaina.demo.templates.Player;
 
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -32,44 +31,52 @@ public class Main {
         System.out.println("\u001B[35m" + "NOW LET'S BEGIN!" + "\u001B[0m");
 
 
-        playTheGame(numberOfPlayers, arrayPlayers, numberOfDice);
+        boolean stopPlaying = playTheGame(numberOfPlayers, arrayPlayers, numberOfDice, true);
 
-        findTheWinner(arrayPlayers, numberOfDice);
+        if (!stopPlaying) {
+            findTheWinner(arrayPlayers, numberOfDice);
+        } else {
+            System.out.println("\u001B[30m" + "Game over" + "\u001B[0m");
+
+        }
 
 
     }
 
-    public static void playTheGame(int numberOfPlayers, ArrayList<Player> arrayPlayers, int numberOfDice) {
+    public static boolean playTheGame(int numberOfPlayers, ArrayList<Player> arrayPlayers, int numberOfDice, boolean isPlaying) {
 
 
-        boolean isPlaying = true;
+        do {
 
-        for (int i = 0; i < numberOfPlayers; i++) {
-
-
-            do {
+            for (int i = 0; i < numberOfPlayers; i++) {
 
                 System.out.println("\u001B[36m" + arrayPlayers.get(i).name + "! Type 'go' to throw your dice, or 'stop' to exit game..." + "\u001B[0m");
                 String action = scannerText();
 
-                if (Objects.equals(action, "stop")){
-                    isPlaying = false;
+                switch (action){
+                    case "stop":
+                        return isPlaying = true;
+                    case "go":
+                        System.out.println("PLAYING!");
+                        int score = rollTheDice(1, 6) * numberOfDice;
+                        arrayPlayers.get(i).setScore(score);
+                        System.out.println("\u001B[31m" + "Your score is: " + arrayPlayers.get(i).score + "\u001B[0m");
+                        isPlaying = false;
+                        break;
+                    default:
+                        System.out.println("Wrong input");
+                        break;
 
-                } else if (Objects.equals(action, "go")){
-                System.out.println("PLAYING!");
-                int score = rollTheDice(1, 6) * numberOfDice;
-                arrayPlayers.get(i).setScore(score);
-                System.out.println("\u001B[31m" + "Your score is: " + arrayPlayers.get(i).score + "\u001B[0m");
 
-                } else {
-                    System.out.println("Wrong input, try again!");
                 }
 
+            }
 
-            } while (isPlaying);
 
+        } while (isPlaying);
 
-        }
+    return isPlaying;
+
 
     }
 
@@ -110,7 +117,7 @@ public class Main {
             System.out.println("\u001B[35m" + "let play again to tiebreaker and find a winner." + "\u001B[0m");
 
 
-            playTheGame(winnerOrTie.size(), winnerOrTie, numberOfDice);
+            playTheGame(winnerOrTie.size(), winnerOrTie, numberOfDice, true);
             findTheWinner(winnerOrTie, numberOfDice);
 
         } else {
