@@ -1,81 +1,51 @@
 package com.Janaina.demo;
 
+import com.Janaina.demo.templates.GetInput;
 import com.Janaina.demo.templates.Player;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.List;
+
+import static com.Janaina.demo.PlayTheGame.playTheGame;
+
 
 public class Main {
+
+
     public static void main(String[] args) {
 
+        GetInput sc = new GetInput();
 
         System.out.println("\u001B[35m" + "WELCOME TO THE DICE GAME!" + "\u001B[0m");
 
         System.out.println("\u001B[36m" + "Firstly, how many players will be joining us?" + "\u001B[0m");
-        int numberOfPlayers = scannerNumber();
+        int numberOfPlayers = sc.scannerNumber();
 
-        var arrayPlayers = new ArrayList<Player>();
+        ArrayList<Player> arrayPlayers = new ArrayList<>();
 
         System.out.println("\u001B[35m" + "Amazing!" + "\u001B[0m");
 
         System.out.println("\u001B[36m" + "How many dice do you want each player to throw? " + "\u001B[0m");
-        int numberOfDice = scannerNumber();
+        int numberOfDice = sc.scannerNumber();
 
         System.out.println("\u001B[36m" + "Enter the players names: " + "\u001B[0m");
 
         for (int i = 0; i < numberOfPlayers; i++) {
-            String playerNames = scannerText();
+            String playerNames = sc.scannerText();
             arrayPlayers.add(new Player(playerNames, numberOfDice));
         }
 
         System.out.println("\u001B[35m" + "NOW LET'S BEGIN!" + "\u001B[0m");
 
 
-        boolean stopPlaying = playTheGame(numberOfPlayers, arrayPlayers, numberOfDice, true);
+        boolean stopPlaying = playTheGame(numberOfPlayers, arrayPlayers, numberOfDice, true, sc);
 
         if (!stopPlaying) {
-            findTheWinner(arrayPlayers, numberOfDice);
+            findTheWinner(arrayPlayers, numberOfDice, sc);
         } else {
             System.out.println("\u001B[30m" + "Game over" + "\u001B[0m");
 
         }
-
-
-    }
-
-    public static boolean playTheGame(int numberOfPlayers, ArrayList<Player> arrayPlayers, int numberOfDice, boolean isPlaying) {
-
-
-        do {
-
-            for (int i = 0; i < numberOfPlayers; i++) {
-
-                System.out.println("\u001B[36m" + arrayPlayers.get(i).name + "! Type 'go' to throw your dice, or 'stop' to exit game..." + "\u001B[0m");
-                String action = scannerText();
-
-                switch (action){
-                    case "stop":
-                        return isPlaying = true;
-                    case "go":
-                        System.out.println("PLAYING!");
-                        int score = rollTheDice(1, 6) * numberOfDice;
-                        arrayPlayers.get(i).setScore(score);
-                        System.out.println("\u001B[31m" + "Your score is: " + arrayPlayers.get(i).score + "\u001B[0m");
-                        isPlaying = false;
-                        break;
-                    default:
-                        System.out.println("Wrong input");
-                        break;
-
-
-                }
-
-            }
-
-
-        } while (isPlaying);
-
-    return isPlaying;
 
 
     }
@@ -86,15 +56,15 @@ public class Main {
     }
 
 
-    private static void findTheWinner(ArrayList<Player> arrayPlayers, int numberOfDice) {
+    private static void findTheWinner(ArrayList<Player> arrayPlayers, int numberOfDice, GetInput sc) {
 
-        var winner = new Player("", -0);
-        var winnerOrTie = new ArrayList<Player>();
+        Player winner = new Player("", -0);
+        ArrayList<Player> winnerOrTie = new ArrayList<Player>();
 
         for (Player p : arrayPlayers) {
             if (p.score > winner.score) {
                 winner = p;
-                var removeOldWinners = winnerOrTie
+                List<Player> removeOldWinners = winnerOrTie
                         .stream()
                         .filter(player -> player.score < p.score)
                         .toList();
@@ -117,8 +87,8 @@ public class Main {
             System.out.println("\u001B[35m" + "let play again to tiebreaker and find a winner." + "\u001B[0m");
 
 
-            playTheGame(winnerOrTie.size(), winnerOrTie, numberOfDice, true);
-            findTheWinner(winnerOrTie, numberOfDice);
+            playTheGame(winnerOrTie.size(), winnerOrTie, numberOfDice, true, sc);
+            findTheWinner(winnerOrTie, numberOfDice, sc);
 
         } else {
             System.out.println("\u001B[35m" + "A round of applause for your winner " + winner.name + " with a score of: " + winner.score + "!!" + "\u001B[0m");
@@ -126,21 +96,6 @@ public class Main {
 
     }
 
-
-    public static int scannerNumber() {
-        Scanner sc = new Scanner(System.in);
-
-        return sc.nextInt();
-
-    }
-
-
-    public static String scannerText() {
-        Scanner sc = new Scanner(System.in);
-
-        return sc.nextLine();
-
-    }
 
 
 }
