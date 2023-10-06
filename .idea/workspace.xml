@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8eeaf11-49b8-428b-8d29-7d4409086190" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Test DiceGame/com/Janaina/test/DiceGameTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Janaina/demo/PlayTheGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/Janaina/demo/templates/GetInput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java A - Laboration DiceGame.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Java A - Laboration DiceGame.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test DiceGame/com/Janaina/test/DiceGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test DiceGame/com/Janaina/test/DiceGameTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Janaina/demo/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Janaina/demo/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Janaina/demo/PlayTheGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Janaina/demo/templates/PlayTheGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Janaina/demo/templates/GetInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Janaina/demo/templates/GetInput.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Janaina/demo/templates/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Janaina/demo/templates/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,6 +60,94 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.Janaina.test" />
     </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.Janaina.demo.Main" />
+      <module name="Java A - Laboration DiceGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.Janaina.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiceGameTest.testAmountOfPlayers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java A - Laboration DiceGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.Janaina.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.Janaina.test" />
+      <option name="MAIN_CLASS_NAME" value="com.Janaina.test.DiceGameTest" />
+      <option name="METHOD_NAME" value="testAmountOfPlayers" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiceGameTest.testQuitGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java A - Laboration DiceGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.Janaina.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.Janaina.test" />
+      <option name="MAIN_CLASS_NAME" value="com.Janaina.test.DiceGameTest" />
+      <option name="METHOD_NAME" value="testQuitGame" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiceGameTest.testRollInRange" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java A - Laboration DiceGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.Janaina.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.Janaina.test" />
+      <option name="MAIN_CLASS_NAME" value="com.Janaina.test.DiceGameTest" />
+      <option name="METHOD_NAME" value="testRollInRange" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiceGameTest.testWinnerOrTie" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java A - Laboration DiceGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.Janaina.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.Janaina.test" />
+      <option name="MAIN_CLASS_NAME" value="com.Janaina.test.DiceGameTest" />
+      <option name="METHOD_NAME" value="testWinnerOrTie" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.DiceGameTest.testWinnerOrTie" />
+        <item itemvalue="JUnit.DiceGameTest.testAmountOfPlayers" />
+        <item itemvalue="JUnit.DiceGameTest.testQuitGame" />
+        <item itemvalue="JUnit.DiceGameTest.testRollInRange" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

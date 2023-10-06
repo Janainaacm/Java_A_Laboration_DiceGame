@@ -6,7 +6,7 @@ import com.Janaina.demo.templates.Player;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.Janaina.demo.PlayTheGame.playTheGame;
+import static com.Janaina.demo.templates.PlayTheGame.playTheGame;
 
 
 public class Main {
@@ -51,12 +51,7 @@ public class Main {
     }
 
 
-    public static int rollTheDice(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
-    }
-
-
-    private static void findTheWinner(ArrayList<Player> arrayPlayers, int numberOfDice, GetInput sc) {
+    public static Player findTheWinner(ArrayList<Player> arrayPlayers, int numberOfDice, GetInput sc) {
 
         Player winner = new Player("", -0);
         ArrayList<Player> winnerOrTie = new ArrayList<Player>();
@@ -88,11 +83,16 @@ public class Main {
 
 
             playTheGame(winnerOrTie.size(), winnerOrTie, numberOfDice, true, sc);
-            findTheWinner(winnerOrTie, numberOfDice, sc);
+
+            return findTheWinner(winnerOrTie, numberOfDice, sc);
 
         } else {
             System.out.println("\u001B[35m" + "A round of applause for your winner " + winner.name + " with a score of: " + winner.score + "!!" + "\u001B[0m");
+            return winner;
+
         }
+
+
 
     }
 

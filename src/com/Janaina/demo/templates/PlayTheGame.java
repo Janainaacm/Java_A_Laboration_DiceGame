@@ -1,14 +1,21 @@
-package com.Janaina.demo;
-
-import com.Janaina.demo.templates.GetInput;
-import com.Janaina.demo.templates.Player;
+package com.Janaina.demo.templates;
 
 import java.util.ArrayList;
+import java.util.Random;
 
-import static com.Janaina.demo.Main.rollTheDice;
 
 public class PlayTheGame {
 
+    static Random random = new Random();
+
+    public static int rollTheDice(int diceQuantity) {
+        int sum = 0;
+        for (int i = 1; i <= diceQuantity; i++) {
+            int roll = random.nextInt(1, 7);
+            sum = roll + sum;
+        }
+        return sum;
+    }
 
     public static boolean playTheGame(int numberOfPlayers, ArrayList<Player> arrayPlayers, int numberOfDice, boolean isPlaying, GetInput sc) {
 
@@ -25,7 +32,7 @@ public class PlayTheGame {
                         return isPlaying = true;
                     case "go":
                         System.out.println("PLAYING!");
-                        int score = rollTheDice(1, 6) * numberOfDice;
+                        int score = rollTheDice(numberOfDice);
                         arrayPlayers.get(i).setScore(score);
                         System.out.println("\u001B[31m" + "Your score is: " + arrayPlayers.get(i).score + "\u001B[0m");
                         isPlaying = false;
